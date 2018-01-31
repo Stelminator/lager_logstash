@@ -34,6 +34,7 @@ format(LagerMsg, Config) ->
     Metadata = lager_msg:metadata(LagerMsg),
     Data = [{type, lager_logstash},
             {level, Level},
+            {severity, Level},
             {'@timestamp', Timestamp},
             {message, Message} | Metadata],
     [encode(Encoder, convert(Data)), $\n].
